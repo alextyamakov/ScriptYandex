@@ -17,9 +17,6 @@ public class MarketFilteredPage extends BasePageObject {
     @FindBy(xpath = "//div//h3/a/span")
     List<WebElement> list1;
 
-    @FindBy(xpath = "//div/div[1]/div/div/article[1]/div[4]/div[1]/h3/a/span")
-    WebElement firstElementt;
-
     @FindBy(xpath = "//input[@placeholder = 'Искать товары']")
     WebElement searchLine;
 
@@ -42,7 +39,7 @@ public class MarketFilteredPage extends BasePageObject {
         Assert.assertEquals("Количество элементов на странице не 12", expected, actual);
     }
 
-    final  String firstElement = firstElementt.getText();
+    final static String firstElement = BaseSteps.driver.findElement(By.xpath("//div/div[1]/div/div/article[1]/div[4]/div[1]/h3/a/span")).getText();
 
     public void fillFirstElement () {
         fillField(searchLine,firstElement);
@@ -55,7 +52,6 @@ public class MarketFilteredPage extends BasePageObject {
 
     public void assertSearchElements () {
         String actual = firstAfterSearchElements.getText();
-        String expected = firstElement;
-        Assert.assertEquals("Название первого элемента не совпадает с поиском", expected, actual);
+        Assert.assertEquals("Название первого элемента не совпадает с поиском", firstElement, actual);
 
-}}
+    }}

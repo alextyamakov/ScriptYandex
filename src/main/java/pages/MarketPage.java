@@ -24,7 +24,7 @@ public class MarketPage extends BasePageObject {
     @FindBy(xpath = "//div[7]//div/div/button")
     WebElement allBrands;
 
-    @FindBy(xpath = "//*[@id]/div")
+    @FindBy(xpath = "//div[2]//div[2]/div[1]/div[7]//div[2]//label/div[contains(text(),'Samsung')]")
     WebElement checkboxBrand;
 
     @FindBy(xpath = "//div[3]/div/div/a[2]")
@@ -57,8 +57,8 @@ public class MarketPage extends BasePageObject {
     }
 
     public void selectCheckBoxBrand (String itemName) {
-        ((JavascriptExecutor) BaseSteps.driver).executeScript("arguments[0].scrollIntoView(true);", checkboxBrand.findElement(By.xpath("//*[@id='"+itemName+"']/div")));
-        checkboxBrand.findElement(By.xpath("//*[@id='"+itemName+"']/div")).click();
+        ((JavascriptExecutor) BaseSteps.driver).executeScript("arguments[0].scrollIntoView(true);", checkboxBrand.findElement(By.xpath("//div[2]//div[2]/div[1]/div[7]//div[2]//label/div[contains(text(),'"+itemName+"')]")));
+        checkboxBrand.findElement(By.xpath("//div[2]//div[2]/div[1]/div[7]//div[2]//label/div[contains(text(),'"+itemName+"')]")).click();
     }
 
     public void selectFilterExecute () {
